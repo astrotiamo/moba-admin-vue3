@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// import ElementPlus from 'element-plus'
-// import 'element-plus/dist/index.css'
+import 'element-plus/dist/index.css'
+import { ElMessageBox, ElMessage } from 'element-plus'
 
 import '../src/assets/css/style.css'
 
@@ -14,11 +14,13 @@ import http from './http'
 const app = createApp(App)
 
 app.config.globalProperties.$http = http
+app.config.globalProperties.$message = ElMessage
+app.config.globalProperties.$confirm = ElMessageBox
 
 app.mixin({
   computed: {
     uploadUrl() {
-      return this.$http.defaults.baseURL + '/upload'
+      return app.config.globalProperties.$http.defaults.baseURL + '/upload'
     }
   },
   methods: {
