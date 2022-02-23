@@ -1,11 +1,14 @@
 <template>
-  <el-container style="height: 100vh;">
+  <el-container style="height: 100vh">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
       <!--  :default-openeds="['1']" -->
       <el-menu router unique-opened :default-active="app.$route.path">
         <el-sub-menu index="1">
           <template v-slot:title>
-            <i class="el-icon-message"></i>内容管理
+            <el-icon>
+              <edit></edit> 
+            </el-icon>
+            内容管理
           </template>
           <el-menu-item-group>
             <template v-slot:title>物品</template>
@@ -26,7 +29,10 @@
 
         <el-sub-menu index="2">
           <template v-slot:title>
-            <i class="el-icon-message"></i>运营管理
+            <el-icon>
+              <edit></edit> 
+            </el-icon>
+            运营管理
           </template>
           <el-menu-item-group>
             <template v-slot:title>广告位</template>
@@ -37,7 +43,10 @@
 
         <el-sub-menu index="3">
           <template v-slot:title>
-            <i class="el-icon-message"></i>系统设置
+            <el-icon>
+              <edit></edit> 
+            </el-icon>
+            系统设置
           </template>
           <el-menu-item-group>
             <template v-slot:title>分类</template>
@@ -56,7 +65,9 @@
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
         <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
+          <el-icon style="margin-top: 22px; margin-right: 6px">
+            <setting></setting>
+          </el-icon>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item>View</el-dropdown-item>
@@ -76,27 +87,32 @@
 </template>
 
 <script>
-import { getCurrentInstance } from 'vue'
+import { getCurrentInstance } from "vue";
+import { Edit, Setting } from "@element-plus/icons-vue"; // eslint-disable-line no-unused-vars
 export default {
   name: "Main",
+  components: {
+    edit: Edit,
+    setting: Setting
+  },
   setup() {
-    const { appContext } = getCurrentInstance()
-    const app = appContext.config.globalProperties
+    const { appContext } = getCurrentInstance();
+    const app = appContext.config.globalProperties;
 
     return {
       appContext,
-      app
-    }
-  }
+      app,
+    };
+  },
 };
 </script>
 
 <style scoped>
 .el-header {
-    background-color: #B3C0D1;
-    color: #333;
-    line-height: 60px;
-  }
+  background-color: #b3c0d1;
+  color: #333;
+  line-height: 60px;
+}
 .el-aside {
   color: #333;
 }

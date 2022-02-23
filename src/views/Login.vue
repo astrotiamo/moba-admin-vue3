@@ -53,6 +53,6 @@ export default {
 <style>
   .login-card {
     width: 25rem;
-    margin: 6rem auto;
+    margin: 10rem auto;
   }
 </style>

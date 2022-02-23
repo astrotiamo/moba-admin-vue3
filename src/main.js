@@ -15,7 +15,7 @@ const app = createApp(App)
 
 app.config.globalProperties.$http = http
 app.config.globalProperties.$message = ElMessage
-app.config.globalProperties.$confirm = ElMessageBox
+app.config.globalProperties.$confirm = ElMessageBox.confirm
 
 app.mixin({
   computed: {
@@ -33,5 +33,8 @@ app.mixin({
 })
 
 app.use(router)
+// 按需导入
 // app.use(ElementPlus)
 app.mount('#app')
+
+export default app
