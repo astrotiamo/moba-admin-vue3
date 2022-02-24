@@ -11,9 +11,11 @@
       <el-input v-model="articleModel.title"></el-input>
     </el-form-item>
     <el-form-item label="详情">
-      <vue-editor v-model="articleModel.body" 
+      <vue-editor 
+        v-model="articleModel.body" 
         useCustomImageHandler 
-        @image-added="handleImageAdded"></vue-editor>
+        @image-added="handleImageAdded">
+      </vue-editor>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" native-type="submit" @click="save">保存</el-button>

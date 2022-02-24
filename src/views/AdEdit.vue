@@ -7,7 +7,7 @@
     </el-form-item>
     <el-form-item label="广告">
       <el-button size="small" @click="adModel.items.push({})">
-        <el-icon><document-add /></el-icon>添加广告
+        <el-icon><plus /></el-icon>添加广告
       </el-button>
       <el-row type="flex" style="flex-wrap: wrap;">
         <el-col :md="24" v-for="(item, index) in adModel.items" :key="index">
@@ -90,5 +90,26 @@ export default {
 </script>
 
 <style>
-
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409eff;
+}
+.el-icon.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  text-align: center;
+}
+.avatar {
+  /* width: 178px;
+  height: 178px; */
+  display: block;
+}
 </style>

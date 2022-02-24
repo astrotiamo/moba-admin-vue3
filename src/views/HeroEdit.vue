@@ -43,16 +43,16 @@
           </el-select>
         </el-form-item>
         <el-form-item label="难度">
-          <el-rate style="margin-top: 0.7rem;" :max="9" show-score v-model="model.scores.difficult"></el-rate>
+          <el-rate style="margin-top: 0.6rem;" :max="9" show-score v-model="model.scores.difficult"></el-rate>
         </el-form-item>
         <el-form-item label="技能">
-          <el-rate style="margin-top: 0.7rem;" :max="9" show-score v-model="model.scores.skills"></el-rate>
+          <el-rate style="margin-top: 0.6rem;" :max="9" show-score v-model="model.scores.skills"></el-rate>
         </el-form-item>
         <el-form-item label="攻击">
-          <el-rate style="margin-top: 0.7rem;" :max="9" show-score v-model="model.scores.attack"></el-rate>
+          <el-rate style="margin-top: 0.6rem;" :max="9" show-score v-model="model.scores.attack"></el-rate>
         </el-form-item>
         <el-form-item label="生存">
-          <el-rate style="margin-top: 0.7rem;" :max="9" show-score v-model="model.scores.survive"></el-rate>
+          <el-rate style="margin-top: 0.6rem;" :max="9" show-score v-model="model.scores.survive"></el-rate>
         </el-form-item>
         <el-form-item label="顺风出装">
           <el-select v-model="model.items1" multiple>
@@ -76,7 +76,9 @@
       </el-tab-pane>
 
       <el-tab-pane label="技能" name="skills">
-        <el-button size="small" @click="model.skills.push({})"><i class="el-icon-plus"></i>添加技能</el-button>
+        <el-button size="small" @click="model.skills.push({})">
+          <el-icon><plus /></el-icon>添加技能
+        </el-button>
         <el-row type="flex" style="flex-wrap: wrap;">
           <el-col :md="12" v-for="(item, index) in model.skills" :key="index">
             <el-form-item label="名称">
@@ -113,7 +115,10 @@
       </el-tab-pane>
 
       <el-tab-pane label="最佳搭档" name="partners">
-        <el-button size="small" @click="model.partners.push({})"><i class="el-icon-plus"></i>添加英雄</el-button>
+        <el-button size="small" @click="model.partners.push({})">
+          <el-icon><plus /></el-icon>
+          添加英雄
+        </el-button>
         <el-row type="flex" style="flex-wrap: wrap;">
           <el-col :md="12" v-for="(item, index) in model.partners" :key="index">
             <el-form-item label="英雄">
@@ -243,6 +248,27 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409eff;
+}
+.el-icon.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  text-align: center;
+}
+.avatar {
+  /* width: 178px;
+  height: 178px; */
+  display: block;
+}
 </style>
